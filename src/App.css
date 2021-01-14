@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.text-span:hover {
+  cursor: pointer;
+  background-color: aqua;
+}
+
+.span-selected {
+  background-color: aqua;
+}
