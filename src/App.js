@@ -3,51 +3,13 @@ import "./App.css";
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 
-const apiPath = "http://f02adef40937.ngrok.io";
+const apiPath = "http://67f8a6d76d62.ngrok.io/";
 class App extends Component {
     state = {
         textInput: "",
         sentence: null,
         spans: null,
         active_span: null,
-        // sentence: [
-        //     "Công_ty",
-        //     "Mỹ",
-        //     "Analog_Devices",
-        //     "Inc.",
-        //     "(",
-        //     "ADI",
-        //     ")",
-        //     "đang",
-        //     "nghiên_cứu",
-        //     "dự_án",
-        //     "“",
-        //     "Internet",
-        //     "cho",
-        //     "cà_chua",
-        //     "”",
-        //     "nhằm",
-        //     "thúc_đẩy",
-        //     "các",
-        //     "công_nghệ",
-        //     "như",
-        //     "hệ_thống",
-        //     "cơ_điện",
-        //     "tử",
-        //     "và",
-        //     "cảm_biến.",
-        // ],
-        // spans: {
-        //     LOC: [[1, 2]],
-        //     ORG: [
-        //         [0, 4],
-        //         [5, 6],
-        //     ],
-        // },
-        // active_span: {
-        //     label: "LOC",
-        //     span: [1, 2],
-        // },
     };
 
     render_sentence = () => {
@@ -64,7 +26,7 @@ class App extends Component {
             )
         }
 
-        const {label, span} = active_span;
+        const {span} = active_span;
         const s_i = span[0];
         const e_i = span[1];
         // console.log(sentence, s_i);
@@ -102,6 +64,9 @@ class App extends Component {
         const { spans, sentence, active_span } = this.state;
         return (
             <div className="container mt-5">
+                <div className="row">
+                    <p className='text-center w-100'><h1>NER Demo</h1></p>
+                </div>
                 <div className="row">
                     <form style={{ width: "100%" }} onSubmit={this.onSubmit.bind(this)}>
                         <div className="form-group">
