@@ -3,13 +3,15 @@ import "./App.css";
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 
-const apiPath = "http://67f8a6d76d62.ngrok.io/";
+const apiPath = "http://bb9cca16d91a.ngrok.io";
 class App extends Component {
     state = {
         textInput: "",
         sentence: null,
         spans: null,
         active_span: null,
+        html: null,
+        data: null,
     };
 
     render_sentence = () => {
@@ -53,15 +55,15 @@ class App extends Component {
                     }
                 }                
             )
-            const {data: {sentence, spans}} = response;
+            const {data: {sentence, spans, html }} = response;
             this.setState({
-                sentence, spans, active_span: null,
+                sentence, spans, active_span: null, html,
             })
         }
     }
 
     render() {
-        const { spans, sentence, active_span } = this.state;
+        const { spans, sentence, active_span, html } = this.state;
         return (
             <div className="container mt-5">
                 <div className="row">
@@ -136,6 +138,9 @@ class App extends Component {
                                     );
                                 })}
                             </div>
+                        </div>
+                        <div className='row my-5'>
+                            <div dangerouslySetInnerHTML={{__html: html}} />
                         </div>
                     </Fragment>
                 )}
